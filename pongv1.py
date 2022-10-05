@@ -8,6 +8,7 @@ Created on Wed Oct  5 12:42:13 2022
 # Making a Pong Type video game
 
 import turtle
+import time
 
 wn = turtle.Screen()
 wn.title("Pong by @zackg")
@@ -40,8 +41,8 @@ ball.shape("square")
 ball.color("white")
 ball.penup()
 ball.goto(0, 0)
-ball.dx = 2
-ball.dy = -2
+ball.dx = 3
+ball.dy = -3
 
 # Function
 def paddle_a_up():
@@ -76,6 +77,7 @@ wn.onkeypress(paddle_b_down, "Down")
 # Main game loop
 while True:
     wn.update()
+    time.sleep(0.01)
     
     # Move the ball
     ball.setx(ball.xcor() + ball.dx)
