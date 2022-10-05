@@ -75,13 +75,21 @@ wn.onkeypress(paddle_b_down, "Down")
 
 
 # Main game loop
+
+TIME_INC = 0.02
+now = time.time()
+
 while True:
     wn.update()
-    time.sleep(0.01)
-    
-    # Move the ball
-    ball.setx(ball.xcor() + ball.dx)
-    ball.sety(ball.ycor() + ball.dy)
+
+    diff = time.time() - now
+
+    if diff > TIME_INC:
+        # Move the ball
+        ball.setx(ball.xcor() + ball.dx)
+        ball.sety(ball.ycor() + ball.dy)
+
+        now = time.time()
     
     # Border checking
     if ball.ycor() > 290:
